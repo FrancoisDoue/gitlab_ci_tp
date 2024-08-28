@@ -9,6 +9,15 @@ stages:
 - build
 - test
 - deploy
+
+docker-compose-playground:
+  stage: build
+  image: docker:latest
+  service: docker:latest
+  tags:
+    - docker
+  script:
+    - docker compose up -b
 # - review
 # - dast
 # - staging
@@ -25,15 +34,15 @@ stages:
 # include:
 # - template: Auto-DevOps.gitlab-ci.yml
 
-build-job:       # This job runs in the build stage, which runs first.
-  stage: build
-  script:
-    - echo "Compiling the code..."
-    - RUN docker-compose up -d
-    - echo "Compile complete."
-  tags:
-    - docker
-    - shell
+#build-job:       # This job runs in the build stage, which runs first.
+#  stage: build
+#  script:
+#    - echo "Compiling the code..."
+#    - RUN docker-compose up -d
+#    - echo "Compile complete."
+#  tags:
+#    - docker
+#    - shell
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
