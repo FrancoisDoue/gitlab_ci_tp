@@ -19,12 +19,12 @@ variables:
 build:
   stage: build
   image: docker:latest
-  # before_script:
-  #   - docker --version
-  #   - docker-compose --version
+  before_script:
+    - docker --version
+    - docker-compose --version
   script:
-    # - docker compose down
-    # - docker compose build
+    - docker compose down
+    - docker compose build
     - docker compose --file="./docker-compose.yml" up
   tags:
     - docker
