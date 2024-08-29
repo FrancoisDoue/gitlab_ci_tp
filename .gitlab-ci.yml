@@ -1,4 +1,3 @@
-
 stages:
   - test
 
@@ -18,7 +17,7 @@ build-database:
     - mysql --version
     - echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
 #    - mysql -h mysql -u root -p "$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE" ./script.sql
-    - SHOW TABLES;
+    - echo SHOW TABLES;
   tags:
     - docker
 
