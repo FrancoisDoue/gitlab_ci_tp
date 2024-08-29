@@ -9,8 +9,8 @@ services:
       - MYSQL_DATABASE=spring_sec_ex2
     ports:
       - 6033:3306
-    volumes:
-      - todo_db:/var/lib/mysql
+    # volumes:
+    #   - todo_db:/var/lib/mysql
       # - ./script.sql:/docker-entrypoint-initdb.d/script.sql
     # networks:
     #   - todo_network
