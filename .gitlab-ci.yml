@@ -15,7 +15,7 @@ docker-compose-playground:
 #  image: docker:latest
 #  service: docker:latest
   tags:
-    - shell
+#    - shell
     - docker
   script:
     - docker compose up --build -d
