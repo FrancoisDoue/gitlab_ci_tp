@@ -17,7 +17,7 @@ docker-compose-playground:
   tags:
     - docker
   script:
-    - docker compose up -b
+    - docker compose up -d
 # - review
 # - dast
 # - staging
