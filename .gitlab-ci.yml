@@ -12,9 +12,10 @@ stages:
 
 docker-compose-playground:
   stage: build
-  image: docker:latest
+#  image: docker:latest
 #  service: docker:latest
   tags:
+    - shell
     - docker
   script:
     - docker compose up --build -d
