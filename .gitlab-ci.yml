@@ -19,9 +19,9 @@ build:
   #   DOCKER_DRIVER: overlay2
   # image:
   #   name: docker/compose:latest
-  before_script:
-    - docker --version
-    - docker-compose --version
+  # before_script:
+  #   - docker --version
+  #   - docker-compose --version
   stage: build
   script:
     - docker-compose down
