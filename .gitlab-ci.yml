@@ -13,7 +13,7 @@ stages:
 docker-compose-playground:
   stage: build
   image: docker:latest
-  service: docker:latest
+#  service: docker:latest
   tags:
     - docker
   script:
