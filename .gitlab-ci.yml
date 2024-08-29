@@ -11,7 +11,7 @@ build-database:
     - name: mysql:8.0.39
       alias: mysql
   script:
-    - echo "mysql --version"
+    - mysql --version
   tags:
     - docker
 
