@@ -24,9 +24,9 @@ build:
   #   - docker --version
   #   - docker-compose --version
   script:
-    - docker compose down
-    - docker compose build
-    - docker compose up
+    - docker-compose down
+    - docker-compose build
+    - docker-compose up
 
 # docker-compose-playground:
 #   stage: build
