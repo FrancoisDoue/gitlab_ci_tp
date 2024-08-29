@@ -18,7 +18,7 @@ docker-compose-playground:
 #    - shell
     - docker
   script:
-    - docker compose --file="./docker-compose.yml"
+    - docker compose --file="./docker-compose.yml" up
 # - review
 # - dast
 # - staging
