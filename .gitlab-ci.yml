@@ -19,8 +19,8 @@ build-database:
     MYSQL_SCRIPT: ./script.sql
   script:
     - mysql --version
-    - echo "${MYSQL_SCRIPT}" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
-    - echo "cat /docker-entrypoint-initdb.d/init.sql"
+    - echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
+    - cat /docker-entrypoint-initdb.d/init.sql
     - echo "SELECT * FROM task" | mysql --user=root --password=${MYSQL_ROOT_PASSWORD} --host=mysql ${MYSQL_DATABASE}
   tags:
     - docker
