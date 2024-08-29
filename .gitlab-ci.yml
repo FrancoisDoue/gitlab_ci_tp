@@ -17,7 +17,8 @@ build-database:
 #    - /bin/sh -c echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
     - mysql --version
     - echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
-    - mysql SHOW TABLES
+    - mysql -u root -p $MYSQL_PASSWORD -h '$MYSQL_DATABASE' -e 'SHOW TABLES;'
+
   tags:
     - docker
 
