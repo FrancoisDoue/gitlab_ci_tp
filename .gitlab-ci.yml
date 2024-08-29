@@ -20,7 +20,7 @@ build-database:
   script:
     - mysql --version
     - echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/script.sql && docker-entrypoint.sh
-    - echo "SELECT 'OK'" | mysql --user=root --password=${MYSQL_ROOT_PASSWORD} --host=mysql ${MYSQL_DATABASE}
+    - echo "SELECT 'OK'; SHOW TABLES;" | mysql --user=root --password=${MYSQL_ROOT_PASSWORD} --host=mysql ${MYSQL_DATABASE}
   tags:
     - docker
 
