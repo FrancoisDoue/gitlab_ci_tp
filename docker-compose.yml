@@ -1,3 +1,4 @@
+---
 services:
   mysql:
     container_name: tp_docker_db
@@ -10,9 +11,9 @@ services:
       - 6033:3306
     volumes:
       - todo_db:/var/lib/mysql
-      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
-    networks:
-      - todo_network
+      # - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+    # networks:
+    #   - todo_network
 
   pma:
     container_name: tp_docker_db_admin
@@ -23,8 +24,8 @@ services:
       - 3030:80
     environment:
       - PMA_HOST=tp_docker_db
-    networks:
-      - todo_network
+    # networks:
+    #   - todo_network
 
   backend:
     container_name: tp_docker_spring_app
@@ -39,10 +40,10 @@ services:
     command: 
       - --spring.datasource.url=jdbc:mysql://tp_docker_db/spring_sec_ex2
       - --spring.jpa.hibernate.ddl-auto=validate
-    networks:
-      - todo_network
+    # networks:
+    #   - todo_network
 
-volumes:
-  todo_db:
-networks:
-  todo_network:
+# volumes:
+#   todo_db:
+# networks:
+#   todo_network:
