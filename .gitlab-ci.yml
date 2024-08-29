@@ -14,9 +14,9 @@ docker-compose-playground:
   stage: build
   image: docker:latest
 #  service: docker:latest
-#  tags:
+  tags:
 #    - shell
-#    - docker
+    - docker
   script:
     - docker compose up --build -d
 # - review
