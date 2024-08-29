@@ -14,6 +14,8 @@ build-database:
     MYSQL_ROOT_PASSWORD: root
   script:
     - mysql --version
+    - mysql source ./script.sql
+    - echo "SHOW TABLES;"
   tags:
     - docker
 
