@@ -7,26 +7,25 @@
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 stages:
 - build
-- test
-- deploy
+# - test
+# - deploy
 
+# variables:
+#   DOCKER_HOST: tcp://docker:2375/
+#   DOCKER_DRIVER: overlay2
 
 build:
   stage: build
-  tags:
-    - docker
-  # variables:
-  #   DOCKER_HOST: tcp://docker:2375/
-  #   DOCKER_DRIVER: overlay2
-  image:
-    name: docker/compose:latest
+  image: docker:latest
   # before_script:
   #   - docker --version
   #   - docker-compose --version
   script:
-    - docker-compose down
-    - docker-compose build
-    - docker-compose up
+    # - docker compose down
+    # - docker compose build
+    - docker compose up
+  tags:
+    - docker
 
 # docker-compose-playground:
 #   stage: build
