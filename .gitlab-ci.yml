@@ -1,22 +1,24 @@
 stages:
   - test
 
-variables:
-  MYSQL_DATABASE: spring_sec_ex2
-  MYSQL_ROOT_PASSWORD: root
-  MYSQL_SCRIPT: ./script.sql
+
 
 services:
   - name: mysql:8.0.39
     alias: mysql
 
+
 build-database:
+  variables:
+    MYSQL_DATABASE: spring_sec_ex2
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_SCRIPT: ./script.sql
   stage: test
   image: mysql
   script:
 #    - /bin/sh -c echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
     - mysql --version
-    - echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh
+    - echo "$MYSQL_SCRIPT" > /docker-entrypoint-initdb.d/script.sql && docker-entrypoint.sh
     - mysql -u root -p ${MYSQL_PASSWORD} -e 'SHOW TABLES;'
 
   tags:
