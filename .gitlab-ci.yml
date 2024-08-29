@@ -5,6 +5,8 @@ stages:
 variables:
   MYSQL_DATABASE: spring_sec_ex2
   MYSQL_ROOT_PASSWORD: root
+  MYSQL_SCRIPT: ./script.sql
+
 services:
   - name: mysql:8.0.39
     alias: mysql
@@ -12,10 +14,10 @@ services:
 build-database:
   stage: test
   image: mysql
-
   script:
     - mysql --version
-    - mysql -h mysql -u root -p $MYSQL_ROOT_PASSWORD $MYSQL_DATABASE ./script.sql
+#    - echo "$MYSQL_SCRIPT"
+    - mysql -h mysql -u root -p "$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE" ./script.sql
     - echo "SHOW TABLES;"
   tags:
     - docker
